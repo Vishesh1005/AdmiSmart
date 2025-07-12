@@ -280,7 +280,7 @@ document.addEventListener('keydown', function(event) {
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
     e.preventDefault();
     const formData = new FormData(this);
-    const res = await fetch( "https://vishesh1005-admismart.hf.space/submit-form" , {
+    const res = await fetch( "https://Vishesh1005-admismart.hf.space/submit-form" , {
         method: 'POST',
         body: formData
     });
