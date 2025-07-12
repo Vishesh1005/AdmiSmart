@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdmiSmart.in - AI Chatbot for College Admissions</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">AdmiSmart.in</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#" onclick="openModal()">Contact</a></li>
+            </ul>
+            <a href="#" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+    
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-message">
+                Hi! If you are interested in our AI chatbot and want a trial, write to us at
+                <a href="mailto:admismart.in@gmail.com" class="email-link"> admismart.in@gmail.com</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transform College Admissions with AI</h1>
+                    <p>AdmiSmart AI provides instant, accurate answers to all admission queries. Help students navigate their college journey with our intelligent chatbot solution.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn-primary">Start Free Trial</a>
+                        <a href="#" class="btn-secondary">Watch Demo</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">99%</span>
+                            <span class="stat-label">Accuracy Rate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="chatbot-preview">
+                        <div class="chat-window">
+                            <div class="chat-header">
+                                <div class="chat-avatar"></div>
+                                <span>AdmiSmart Assistant</span>
+                            </div>
+                            <div class="chat-messages">
+                                <div class="message bot-message">
+                                    <p>Hi! I'm here to help with your admission queries. What would you like to know?</p>
+                                </div>
+                                <div class="message user-message">
+                                    <p>What's the application deadline for Computer Science?</p>
+                                </div>
+                                <div class="message bot-message">
+                                    <p>The application deadline for Computer Science is January 15th. You can apply through our online portal.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose AdmISmart.ai?</h2>
+                <p>Powerful features designed to streamline your admission process</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Intelligent AI Responses</h3>
+                    <p>Advanced natural language processing ensures accurate, contextual answers to complex admission queries.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>24/7 Availability</h3>
+                    <p>Never miss a query. Our AI chatbot works round the clock to assist students whenever they need help.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Personalized Training</h3>
+                    <p>Tailored responses based on college brochures and documents you give us to train the bot.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Track query patterns, student engagement, and optimize your admission process with detailed insights.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Compliant</h3>
+                    <p>Enterprise-grade security with GDPR compliance to protect sensitive student information.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Easy Integration</h3>
+                    <p>Seamlessly integrate with your existing website and systems with our simple API and widgets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Choose the plan that fits your institution's needs</p>
+                <p><small>We Offer a 10-15% Discount on Yearly Billings</small></p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Standard</h3>
+                        <div class="price">
+                            <span class="currency">₹</span>
+                            <span class="amount">1999</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Up to 2,000 queries/month</li>
+                        <li>Basic customization</li>
+                        <li>Email support</li>
+                        <li>Suitable for Small Colleges</li>
+                        <li>Hosted on subpage</li>
+                        <li>Shared backend (with fair usage policy)</li>
+                        <li>Chatbot available 24x7</li>
+                        <li>Analytics Dashboard (basic query count)</li>
+                    </ul>
+                    <a href="#" class="pricing-button">Start Free Trial</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">
+                            <span class="currency">₹</span>
+                            <span class="amount">4999</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Up to 10,000 queries/month</li>
+                        <li>College-Branded</li>
+                        <li>Priority Email support</li>
+                        <li>Suitable for Growing Colleges</li>
+                        <li> Hosted on subdomain</li>
+                        <li>Detailed analytics dashboard</li>
+                        <li>Dedicated backend for better performance</li>
+                        <li>Optional lead capture form</li>
+                    </ul>
+                    <a href="#" class="pricing-button">Start Free Trial</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <!-- <span class="currency">Custom Bot</span> -->
+                            <span class="amount">Quoted</span>
+                            <!-- <span class="period">/month</span> -->
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Unlimited queries</li>
+                        <li>Full customization</li>
+                        <li>Dedicated support</li>
+                        <li>White Labelled</li>
+                        <li>WhatsApp integrations</li>
+                        <li>Suitable for Large Organisations</li>
+                        <li>SLA-backed uptime guarantee</li>
+                        <li>Custom training on college docs</li>
+                        <li>Auto retrain on updated docs</li>
+                        <li>Detailed analytics dashboard</li>
+                        <li>Dedicated backend</li>
+                    </ul>
+                    <a href="#" class="pricing-button">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="about">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Admissions Process?</h2>
+                <p>Join colleges already using AdmiSmart AI to enhance their student experience.</p>
+                <a href="#" class="btn-primary large">Start Your Free Trial Today</a>
+            </div>
+        </div>
+    </section>
+
+    <section class = contact>  
+        <div class="modal" id="contact-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Contact Us</h2>
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="email" name="email" placeholder="Your Email" required />
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">AdmiSmart.in</div>
+                    <p>Revolutionizing college admissions with intelligent AI solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integration</a></li>
+                        <li><a href="#">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AdmiSmart.in   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
