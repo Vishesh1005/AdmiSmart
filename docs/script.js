@@ -289,7 +289,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 document.querySelectorAll('.pricing-button').forEach(button => {
     if (button.textContent.includes('Contact')) {
         button.addEventListener('click', () => {
-            window.location.href = 'mailto:hello@admismart.ai?subject=Enterprise Inquiry';
+            window.location.href = 'mailto:admismart.in@gmail.com?subject=Enterprise Inquiry';
         });
     }
 });
