@@ -118,33 +118,22 @@ function typeMessage(element, text, speed = 50) {
 
 // Enhanced chatbot preview with typing effect
 function enhancedChatPreview() {
-    const botMessages = document.querySelectorAll('.bot-message p');
-    const userMessages = document.querySelectorAll('.user-message p');
-    
-    // Store original text
-    const originalTexts = [];
-    botMessages.forEach(msg => originalTexts.push(msg.textContent));
-    userMessages.forEach(msg => originalTexts.push(msg.textContent));
-    
-    // Start typing animation sequence
-    setTimeout(() => {
-        if (botMessages[0]) {
-            typeMessage(botMessages[0], originalTexts[0]);
-        }
-    }, 500);
-    
-    setTimeout(() => {
-        if (userMessages[0]) {
-            typeMessage(userMessages[0], originalTexts[1]);
-        }
-    }, 3000);
-    
-    setTimeout(() => {
-        if (botMessages[1]) {
-            typeMessage(botMessages[1], originalTexts[2]);
-        }
-    }, 5500);
+    const messageElements = document.querySelectorAll('.chat-messages .message p');
+
+    const texts = [];
+    messageElements.forEach(msg => texts.push(msg.textContent));
+
+    // Clear text first
+    messageElements.forEach(el => el.textContent = "");
+
+    // Animate in correct DOM order
+    texts.forEach((text, i) => {
+        setTimeout(() => {
+            typeMessage(messageElements[i], text);
+        }, i * 2500); // 2.5s delay between messages
+    });
 }
+
 
 // Form validation (if forms are added later)
 function validateEmail(email) {
