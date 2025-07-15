@@ -250,8 +250,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // Open modal when Get Started or Start Free Trial is clicked
 document.querySelectorAll('.cta-button, .btn-primary, .pricing-button').forEach(button => {
     button.addEventListener('click', e => {
-        const modal = document.getElementById('contact-modal');
-        if (modal) modal.style.display = 'flex';
+        e.preventDefault();
+        if (button.textContent.includes('Contact')) {
+            window.location.href = 'mailto:admismart.in@gmail.com?subject=Enterprise Inquiry';
+        } else {
+            openModal(); // Use existing openModal function
+        }
     });
 });
 
@@ -286,14 +290,18 @@ document.addEventListener('keydown', function(event) {
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
     e.preventDefault();
     const formData = new FormData(this);
-    const res = await fetch( "https://Vishesh1005-admismart.hf.space/submit-form" , {
-        method: 'POST',
-        body: formData
-    });
-    const result = await res.json();
-    alert(result.message);
-    this.reset();
-    document.getElementById('contact-modal').style.display = 'none';
+    try {
+        const res = await fetch("https://Vishesh1005-admismart.hf.space/submit-form", {
+            method: 'POST',
+            body: formData
+        });
+        const result = await res.json();
+        alert(result.message);
+        this.reset();
+        closeModal(); // Use the existing closeModal function
+    } catch (error) {
+        alert('Error submitting form. Please try again.');
+    }
 });
 
 // Contact sales button => opens email client
