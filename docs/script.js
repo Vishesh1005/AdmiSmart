@@ -250,12 +250,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // Open modal when Get Started or Start Free Trial is clicked
 document.querySelectorAll('.cta-button, .btn-primary, .pricing-button').forEach(button => {
     button.addEventListener('click', e => {
-        e.preventDefault();
-        if (button.textContent.includes('Contact')) {
-            window.location.href = 'mailto:admismart.in@gmail.com?subject=Enterprise Inquiry';
-        } else {
-            openModal(); // Use existing openModal function
-        }
+        const modal = document.getElementById('contact-modal');
+        if (modal) modal.style.display = 'flex';
     });
 });
 
@@ -290,18 +286,14 @@ document.addEventListener('keydown', function(event) {
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
     e.preventDefault();
     const formData = new FormData(this);
-    try {
-        const res = await fetch("https://Vishesh1005-admismart.hf.space/submit-form", {
-            method: 'POST',
-            body: formData
-        });
-        const result = await res.json();
-        alert(result.message);
-        this.reset();
-        closeModal(); // Use the existing closeModal function
-    } catch (error) {
-        alert('Error submitting form. Please try again.');
-    }
+    const res = await fetch( "https://Vishesh1005-admismart.hf.space/submit-form" , {
+        method: 'POST',
+        body: formData
+    });
+    const result = await res.json();
+    alert(result.message);
+    this.reset();
+    document.getElementById('contact-modal').style.display = 'none';
 });
 
 // Contact sales button => opens email client
@@ -315,75 +307,75 @@ document.querySelectorAll('.pricing-button').forEach(button => {
 
 
 // Add CSS for mobile menu and ripple effect
-const additionalStyles = `
-    .mobile-menu-btn {
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        color: #333;
-        cursor: pointer;
-        padding: 0.5rem;
-        margin-left: 1rem;
-    }
+// const additionalStyles = `
+//     .mobile-menu-btn {
+//         background: none;
+//         border: none;
+//         font-size: 1.5rem;
+//         color: #333;
+//         cursor: pointer;
+//         padding: 0.5rem;
+//         margin-left: 1rem;
+//     }
     
-    @media (max-width: 768px) {
-        .nav-links {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            flex-direction: column;
-            padding: 1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transform: translateY(-100%);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
+//     @media (max-width: 768px) {
+//         .nav-links {
+//             position: absolute;
+//             top: 100%;
+//             left: 0;
+//             right: 0;
+//             background: white;
+//             flex-direction: column;
+//             padding: 1rem;
+//             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+//             transform: translateY(-100%);
+//             opacity: 0;
+//             visibility: hidden;
+//             transition: all 0.3s ease;
+//         }
         
-        .nav-links.mobile-active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
+//         .nav-links.mobile-active {
+//             transform: translateY(0);
+//             opacity: 1;
+//             visibility: visible;
+//         }
         
-        .nav-links li {
-            margin: 0.5rem 0;
-        }
-    }
+//         .nav-links li {
+//             margin: 0.5rem 0;
+//         }
+//     }
     
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
-        transform: scale(0);
-        animation: rippleEffect 0.6s linear;
-        pointer-events: none;
-    }
+//     .ripple {
+//         position: absolute;
+//         border-radius: 50%;
+//         background: rgba(255, 255, 255, 0.6);
+//         transform: scale(0);
+//         animation: rippleEffect 0.6s linear;
+//         pointer-events: none;
+//     }
     
-    @keyframes rippleEffect {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
+//     @keyframes rippleEffect {
+//         to {
+//             transform: scale(4);
+//             opacity: 0;
+//         }
+//     }
     
-    .animate {
-        animation: fadeInUp 0.6s ease-out;
-    }
+//     .animate {
+//         animation: fadeInUp 0.6s ease-out;
+//     }
     
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-`;
+//     @keyframes fadeInUp {
+//         from {
+//             opacity: 0;
+//             transform: translateY(30px);
+//         }
+//         to {
+//             opacity: 1;
+//             transform: translateY(0);
+//         }
+//     }
+// `;
 
 // Inject additional styles
 const styleSheet = document.createElement('style');
