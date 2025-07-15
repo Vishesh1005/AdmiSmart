@@ -604,51 +604,50 @@ footer {
 }
 
 /* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-content input,
+.modal-content textarea {
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
+    font-family: inherit;
+    transition: border-color 0.3s ease;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 30px;
+.modal-content input:focus,
+.modal-content textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+}
+
+.modal-content textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.modal-content button {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    padding: 12px 20px;
     border: none;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    border-radius: 8px;
+    font-weight: 600;
     cursor: pointer;
-    position: absolute;
-    right: 15px;
-    top: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-.close:hover {
-    color: #000;
-}
-
-.modal-message {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
-    margin-top: 10px;
+.modal-content button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
 }
 
 .email-link {
@@ -836,11 +835,18 @@ footer {
     }
     
     .hero-visual {
-        margin-top: 2rem;
+        margin-top: 1rem;
+        display: block;
+    }
+    
+    .chatbot-preview {
+        display: block;
+        margin: 0 auto;
     }
     
     .chat-window {
-        max-width: 320px;
+        margin: 0 auto;
+        display: block;
     }
     
     .chat-messages {
@@ -958,7 +964,7 @@ footer {
     }
 
     .hero-stats{
-        display:none !important;
+        display:flex;
     
     .hero-text p {
         font-size: 1rem;
