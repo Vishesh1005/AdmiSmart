@@ -296,6 +296,38 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     document.getElementById('contact-modal').style.display = 'none';
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+
+            try {
+                const response = await fetch("https://Vishesh1005-admismart.hf.space/submit_form", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert("Form submitted successfully!");
+                    form.reset();
+                } else {
+                    alert("Submission failed. Try again later.");
+                }
+            } catch (err) {
+                alert("Error occurred. Please check your connection.");
+            }
+        });
+    }
+});
+
+
 // Contact sales button => opens email client
 document.querySelectorAll('.pricing-button').forEach(button => {
     if (button.textContent.includes('Contact')) {
@@ -381,3 +413,4 @@ document.querySelectorAll('.pricing-button').forEach(button => {
 const styleSheet = document.createElement('style');
 styleSheet.textContent = additionalStyles;
 document.head.appendChild(styleSheet);
+
