@@ -15,6 +15,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Toggle mobile navigation menu
+function toggleMobileMenu() {
+    const mobileNav = document.getElementById('mobileNav');
+    mobileNav.classList.toggle('active');
+}
+
+// Close mobile navigation menu
+function closeMobileMenu() {
+    const mobileNav = document.getElementById('mobileNav');
+    mobileNav.classList.remove('active');
+}
+
+// Open contact modal
+function openModal() {
+    // You can replace this with actual modal logic
+    alert("Contact modal opened!");
+}
 
 
 // Header scroll effect
@@ -287,6 +304,7 @@ document.querySelectorAll('.pricing-button').forEach(button => {
         });
     }
 });
+
 
 // Add CSS for mobile menu and ripple effect
 const additionalStyles = `
