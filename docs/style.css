@@ -935,7 +935,8 @@ footer {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 10px;
+        padding: 5px;
+        flex-direction: row;
     }
     
     .logo {
