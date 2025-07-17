@@ -95,20 +95,65 @@ function initLazyLoading() {
   images.forEach(img => observer.observe(img));
 }
 
-// === DOM Ready ===
+// // === DOM Ready ===
+// document.addEventListener("DOMContentLoaded", function () {
+//   simulateChatSequence();
+//   initParallax();
+//   initLazyLoading();
+
+//   const getStarted = document.querySelector(".cta-button");
+//   const startTrial = document.querySelector(".btn-primary"); 
+//   const trialButton = document.querySelector(".startTrialBtn");  
+//   const closeBtn = document.querySelector("#formModal .close");
+//   const form = document.getElementById("contact-form");
+
+//   // Open modal buttons
+//   [getStarted, startTrial, trialButton]].forEach(btn => {
+//     if (btn) {
+//       btn.addEventListener("click", function (e) {
+//         e.preventDefault();
+//         openModal();
+//       });
+//     }
+//   });
+
+//   // Close modal events
+//   if (closeBtn) {
+//     closeBtn.addEventListener("click", closeModal);
+//   }
+
+//   window.addEventListener("click", function (e) {
+//     if (e.target.id === "formModal") closeModal();
+//   });
+
+//   document.addEventListener("keydown", function (e) {
+//     if (e.key === 'Escape') closeModal();
+//   });
+
 document.addEventListener("DOMContentLoaded", function () {
-  simulateChatSequence();
-  initParallax();
-  initLazyLoading();
+  const openModalButtons = [
+    document.querySelector(".cta-button"),
+    document.querySelector(".btn-primary:not(.large)"),
+    document.getElementById("startTrialBtn"),
+    document.getElementById("cntBtn")  
+  ];
 
-  const getStarted = document.querySelector(".cta-button");
-  const startTrial = document.querySelector(".btn-primary"); 
-  const trialButton = document.querySelector(".startTrialBtn");  
-  const closeBtn = document.querySelector("#formModal .close");
-  const form = document.getElementById("contact-form");
+  const modal = document.getElementById("formModal");
+  const closeModalButton = modal?.querySelector(".close");
 
-  // Open modal buttons
-  [getStarted, startTrial, trialButton]].forEach(btn => {
+  function openModal() {
+    if (modal) {
+      modal.style.display = "block";
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  openModalButtons.forEach(btn => {
     if (btn) {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -117,18 +162,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Close modal events
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closeModal);
+  if (closeModalButton) {
+    closeModalButton.addEventListener("click", closeModal);
   }
 
   window.addEventListener("click", function (e) {
-    if (e.target.id === "formModal") closeModal();
+    if (e.target === modal) {
+      closeModal();
+    }
   });
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === "Escape") {
+      closeModal();
+    }
   });
+});
+
+
 
   // Form submission
   if (form) {
