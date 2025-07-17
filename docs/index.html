@@ -38,36 +38,23 @@
         </ul> 
     </div>-->
 </header>
-    
-    <!-- Contact Modal -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div class="modal-message">
-                Hi! If you are interested in our AI chatbot and want a trial, write to us at
-                <a href="mailto:admismart.in@gmail.com" class="email-link"> admismart.in@gmail.com</a>
-            </div>
-        </div>
-    </div>
 
-    
-<!-- Contact Form Modal -->
-<div id="contact-form-modal" class="modal">
+
+    <!-- ACTUAL FORM MODAL (id changed from contactModal to formModal) -->
+<div id="formModal" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Get in Touch</h2>
+    <span class="close" onclick="closeModal()">&times;</span>
     <form id="contact-form">
       <label for="name">Name</label>
-      <input type="text" name="name" id="name" required placeholder="Your Name" />
+      <input type="text" name="name" id="name" required>
 
       <label for="email">Email</label>
-      <input type="email" name="email" id="email" required placeholder="your@email.com" />
+      <input type="email" name="email" id="email" required>
 
       <label for="message">Message</label>
-      <textarea name="message" id="message" rows="4" required placeholder="Your message here..."></textarea>
+      <textarea name="message" id="message" required></textarea>
 
-      <!-- Hidden timestamp field -->
-      <input type="hidden" name="timestamp" id="timestamp" />
+      <input type="hidden" name="timestamp" id="timestamp">
 
       <button type="submit">Submit</button>
     </form>
