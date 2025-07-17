@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const formData = new FormData(contactForm);
 
             try {
-                const res = await fetch("https://your-hf-space-url/submit_form", {
+                const res = await fetch("https://Vishesh1005-admismart.hf.space/submit-form", {
                     method: "POST",
                     body: formData,
                 });
