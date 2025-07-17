@@ -102,8 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
   initLazyLoading();
 
   const getStarted = document.querySelector(".cta-button");
-  const startTrial = document.querySelector(".btn-primary:not(.large)"); 
-  const trialButton = document.querySelector(".btn-primary.large");  
+  const startTrial = document.querySelector(".btn-primary"); 
+  const trialButton = document.querySelector(".startTrialBtn");  
   const closeBtn = document.querySelector("#formModal .close");
   const form = document.getElementById("contact-form");
 
