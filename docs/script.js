@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");
 
   // Open modal buttons
-  [getStarted, startTrial].forEach(btn => {
+  [getStarted, startTrial]].forEach(btn => {
     if (btn) {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
