@@ -44,6 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // === Form Submission ===
 document.addEventListener("DOMContentLoaded", () => {
+    const tsInput = document.getElementById("timestamp");
+      if (tsInput) {
+        const now = new Date().toLocaleString();
+        tsInput.value = now;
+      });
     const form = document.getElementById("contact-form");
     if (form) {
         form.addEventListener("submit", async (e) => {
