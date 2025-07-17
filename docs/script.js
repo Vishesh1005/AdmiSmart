@@ -130,12 +130,14 @@ function initLazyLoading() {
 //     if (e.key === 'Escape') closeModal();
 //   });
 
+
 document.addEventListener("DOMContentLoaded", function () {
+  // Select all buttons that should trigger the modal
   const openModalButtons = [
     document.querySelector(".cta-button"),
-    document.querySelector(".btn-primary:not(.large)"),
+    document.querySelectorAll(".btn-primary"), 
     document.getElementById("startTrialBtn"),
-    document.getElementById("cntBtn")  
+    document.getElementById("cntBtn")
   ];
 
   const modal = document.getElementById("formModal");
@@ -153,6 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Attach click event to each modal button
   openModalButtons.forEach(btn => {
     if (btn) {
       btn.addEventListener("click", function (e) {
@@ -162,6 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Close modal events
   if (closeModalButton) {
     closeModalButton.addEventListener("click", closeModal);
   }
