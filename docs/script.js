@@ -1,70 +1,70 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Typing animation for chat messages
-    const chatMessages = document.querySelectorAll(".chat-window .message p");
-    let delay = 0;
+// ----- Modal Logic -----
+document.addEventListener("DOMContentLoaded", function () {
+  const openButtons = document.querySelectorAll('.btn-primary');
+  const modal = document.querySelector('.contact .modal');
+  const closeModal = document.querySelector('.close-modal');
+  const form = document.querySelector('#contactForm');
 
-    chatMessages.forEach((msg, idx) => {
-        const originalText = msg.textContent;
-        msg.textContent = "";
-        msg.style.visibility = "hidden"; // hide until animation
-
-        setTimeout(() => {
-            msg.style.visibility = "visible";
-            let charIndex = 0;
-
-            const typeInterval = setInterval(() => {
-                msg.textContent += originalText.charAt(charIndex);
-                charIndex++;
-
-                if (charIndex >= originalText.length) {
-                    clearInterval(typeInterval);
-                }
-            }, 200); // typing speed
-        }, delay);
-
-        delay += originalText.length * 20 + 500; // delay next message
+  // Open modal
+  openButtons.forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      modal.style.display = "block";
     });
+  });
 
-    // Modal contact form
-    const contactBtn = document.getElementById("contact-btn");
-    const modal = document.getElementById("contact-modal");
-    const closeModalBtn = document.querySelector(".close-modal");
-    const contactForm = document.getElementById("contact-form");
+  // Close modal
+  closeModal.addEventListener('click', function () {
+    modal.style.display = "none";
+  });
 
-    if (contactBtn && modal && closeModalBtn && contactForm) {
-        contactBtn.addEventListener("click", () => {
-            modal.style.display = "block";
-        });
-
-        closeModalBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-
-        window.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-
-        contactForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-
-            try {
-                const res = await fetch("https://Vishesh1005-admismart.hf.space/submit-form", {
-                    method: "POST",
-                    body: formData,
-                });
-
-                const data = await res.json();
-                alert(data.message);
-                if (data.success) {
-                    contactForm.reset();
-                    modal.style.display = "none";
-                }
-            } catch (err) {
-                alert("Something went wrong. Please try again.");
-            }
-        });
+  window.addEventListener('click', function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
     }
+  });
+
+  // Form Submission
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://Vishesh1005-admismart.hf.space/submit-form", {
+        method: "POST",
+        body: formData
+      });
+
+      const result = await response.json();
+      alert(result.message);
+      if (result.success) {
+        form.reset();
+        modal.style.display = "none";
+      }
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+      console.error(error);
+    }
+  });
+});
+
+// ----- Typing Animation in Hero Chatbox -----
+document.addEventListener("DOMContentLoaded", function () {
+  const messages = document.querySelectorAll(".chat-messages .message p");
+
+  messages.forEach((el, index) => {
+    const originalText = el.textContent;
+    el.textContent = "";
+    let charIndex = 0;
+
+    const typeWriter = () => {
+      if (charIndex < originalText.length) {
+        el.textContent += originalText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, 30);
+      }
+    };
+
+    setTimeout(typeWriter, 500 * index);
+  });
 });
