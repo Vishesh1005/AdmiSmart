@@ -1,3 +1,54 @@
+// Form Modal Logic
+document.querySelectorAll('.open-form').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelector('.contact .modal').style.display = 'block';
+  });
+});
+
+document.querySelector('.close-modal').addEventListener('click', () => {
+  document.querySelector('.contact .modal').style.display = 'none';
+});
+
+// Navbar Toggle Logic (uses existing toggle button)
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('mobile-active');
+  navToggle.textContent = navLinks.classList.contains('mobile-active') ? '✕' : '☰';
+});
+
+// Close nav on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (navLinks.classList.contains('mobile-active')) {
+      navLinks.classList.remove('mobile-active');
+      navToggle.textContent = '☰';
+    }
+  });
+});
+
+// Hero Stats Counter Animation
+function animateCounters() {
+  document.querySelectorAll('.stat-number').forEach(el => {
+    const target = parseInt(el.textContent.replace(/\D/g, '')) || 0;
+    let current = 0;
+    const increment = Math.ceil(target / 100);
+    const interval = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        el.textContent = el.textContent;
+        clearInterval(interval);
+      } else {
+        el.textContent = `${current}${el.textContent.match(/\D+$/) || ''}`;
+      }
+    }, 20);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', animateCounters);
+
+
 // === Modal Open/Close Functions ===
 function openModal() {
   document.getElementById('formModal').style.display = 'block';
