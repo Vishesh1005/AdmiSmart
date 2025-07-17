@@ -102,7 +102,7 @@ nav {
 }
 
 /* Mobile Menu */
-.mobile-menu-toggle {
+/* .mobile-menu-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
@@ -167,7 +167,7 @@ nav {
 
 .mobile-nav ul li a:hover {
     color: #6366f1;
-}
+} */
 
 /* Hero Section */
 .hero {
