@@ -95,57 +95,19 @@ function initLazyLoading() {
   images.forEach(img => observer.observe(img));
 }
 
-// // === DOM Ready ===
-// document.addEventListener("DOMContentLoaded", function () {
-//   simulateChatSequence();
-//   initParallax();
-//   initLazyLoading();
-
-//   const getStarted = document.querySelector(".cta-button");
-//   const startTrial = document.querySelector(".btn-primary"); 
-//   const trialButton = document.querySelector(".startTrialBtn");  
-//   const closeBtn = document.querySelector("#formModal .close");
-//   const form = document.getElementById("contact-form");
-
-//   // Open modal buttons
-//   [getStarted, startTrial, trialButton]].forEach(btn => {
-//     if (btn) {
-//       btn.addEventListener("click", function (e) {
-//         e.preventDefault();
-//         openModal();
-//       });
-//     }
-//   });
-
-//   // Close modal events
-//   if (closeBtn) {
-//     closeBtn.addEventListener("click", closeModal);
-//   }
-
-//   window.addEventListener("click", function (e) {
-//     if (e.target.id === "formModal") closeModal();
-//   });
-
-//   document.addEventListener("keydown", function (e) {
-//     if (e.key === 'Escape') closeModal();
-//   });
-
-
+// === DOM Ready ===
 document.addEventListener("DOMContentLoaded", function () {
   simulateChatSequence();
   initParallax();
   initLazyLoading();
 
   const getStarted = document.querySelector(".cta-button");
-  const startTrial = document.querySelector(".btn-primary");
-  const trialButton = document.querySelector(".startTrialBtn");
-  const contactSalesBtn = document.querySelector(".pricing-button"); // ✅ added
-
+  const startTrial = document.querySelector(".btn-primary"); 
   const closeBtn = document.querySelector("#formModal .close");
   const form = document.getElementById("contact-form");
 
   // Open modal buttons
-  [getStarted, startTrial, trialButton, cntBtn].forEach(btn => {
+  [getStarted, startTrial].forEach(btn => {
     if (btn) {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -166,18 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("keydown", function (e) {
     if (e.key === 'Escape') closeModal();
   });
-});
-
-function openModal() {
-  const modal = document.getElementById("formModal");
-  if (modal) modal.style.display = "block";
-}
-
-function closeModal() {
-  const modal = document.getElementById("formModal");
-  if (modal) modal.style.display = "none";
-}
-
 
 
   // Form submission
