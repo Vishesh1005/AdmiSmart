@@ -132,31 +132,20 @@ function initLazyLoading() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Select all buttons that should trigger the modal
-  const openModalButtons = [
-    document.querySelector(".cta-button"),
-    document.querySelectorAll(".btn-primary"), 
-    document.getElementById("startTrialBtn"),
-    document.getElementById("cntBtn")
-  ];
+  simulateChatSequence();
+  initParallax();
+  initLazyLoading();
 
-  const modal = document.getElementById("formModal");
-  const closeModalButton = modal?.querySelector(".close");
+  const getStarted = document.querySelector(".cta-button");
+  const startTrial = document.querySelector(".btn-primary");
+  const trialButton = document.querySelector(".startTrialBtn");
+  const contactSalesBtn = document.querySelector(".pricing-button"); // ✅ added
 
-  function openModal() {
-    if (modal) {
-      modal.style.display = "block";
-    }
-  }
+  const closeBtn = document.querySelector("#formModal .close");
+  const form = document.getElementById("contact-form");
 
-  function closeModal() {
-    if (modal) {
-      modal.style.display = "none";
-    }
-  }
-
-  // Attach click event to each modal button
-  openModalButtons.forEach(btn => {
+  // Open modal buttons
+  [getStarted, startTrial, trialButton, cntBtn].forEach(btn => {
     if (btn) {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
@@ -166,22 +155,28 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Close modal events
-  if (closeModalButton) {
-    closeModalButton.addEventListener("click", closeModal);
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
   }
 
   window.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      closeModal();
-    }
+    if (e.target.id === "formModal") closeModal();
   });
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closeModal();
-    }
+    if (e.key === 'Escape') closeModal();
   });
 });
+
+function openModal() {
+  const modal = document.getElementById("formModal");
+  if (modal) modal.style.display = "block";
+}
+
+function closeModal() {
+  const modal = document.getElementById("formModal");
+  if (modal) modal.style.display = "none";
+}
 
 
 
