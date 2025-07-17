@@ -103,11 +103,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const getStarted = document.querySelector(".cta-button");
   const startTrial = document.querySelector(".btn-primary");
+  const Starttrial = document.querySelector(".btn-primary large");
   const closeBtn = document.querySelector("#formModal .close");
   const form = document.getElementById("contact-form");
 
   // Open modal buttons
-  [getStarted, startTrial].forEach(btn => {
+  [getStarted, startTrial, Starttrial].forEach(btn => {
     if (btn) {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
