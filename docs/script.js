@@ -118,3 +118,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const botMessages = document.querySelectorAll(".bot-message p");
+
+    botMessages.forEach((p) => {
+        const fullText = p.textContent;
+        p.textContent = ""; // Clear the text initially
+        let index = 0;
+
+        function typeChar() {
+            if (index < fullText.length) {
+                p.textContent += fullText.charAt(index);
+                index++;
+                setTimeout(typeChar, 30); // Typing speed
+            }
+        }
+
+        setTimeout(typeChar, 500); // Delay before typing starts
+    });
+});
+
