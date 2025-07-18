@@ -257,6 +257,23 @@ nav {
     color: #6366f1;
 }
 
+.watchDemoBtn {
+    background: transparent;
+    color: white;
+    padding: 15px 30px;
+    border: 2px solid white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.watchDemoBtn:hover {
+    background: white;
+    color: #6366f1;
+}
+
+
 .hero-stats {
     display: flex;
     gap: 2rem;
