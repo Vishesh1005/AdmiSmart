@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const videoFrame = document.getElementById('youtube-video');
     const videoWrapper = document.querySelector('.video-wrapper');
     
-    videoFrame.addEventListener('load', function() {
-        videoWrapper.style.setProperty('--loading', 'none');
+       videoFrame.addEventListener('load', function () {
+        videoWrapper.classList.add('loaded');
     });
+
     
     // Handle video loading
     setTimeout(() => {
