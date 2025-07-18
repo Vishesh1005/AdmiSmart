@@ -116,6 +116,21 @@ body {
 }
 
 /* Loading Animation */
+/* .video-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #667eea;
+    animation: spin 1s ease-in-out infinite;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+} */
+
 .video-wrapper::after {
     content: '';
     position: absolute;
@@ -129,6 +144,11 @@ body {
     animation: spin 1s ease-in-out infinite;
     transform: translate(-50%, -50%);
     z-index: 10;
+}
+
+/* Add this new rule to HIDE the spinner */
+.video-wrapper.loaded::after {
+    display: none;
 }
 
 @keyframes spin {
