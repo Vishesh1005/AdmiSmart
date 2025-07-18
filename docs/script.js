@@ -130,6 +130,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.key === 'Escape') closeModal();
   });
 
+const watchDemoBtn = document.getElementById("watchDemoBtn");
+watchDemoBtn.addEventListener("click", function () {
+  // No preventDefault() — let it redirect
+});
 
   // Form submission
   if (form) {
